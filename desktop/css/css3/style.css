@@ -1,0 +1,29 @@
+body{
+    font-family: sans-serif;
+}
+.hello{
+    font-size:40px;
+    text-align:center;
+    color:blue;
+}
+h2{
+    text-align:left;
+}
+.abc{
+    font-size:20px;
+    text-align:left;
+    color:blue;
+}
+ul{
+    list-style-type:none;
+}
+.no1{
+    color:red;
+}
+.abc{
+    font-family:"Meiryo",sans-serif;
+    font-size:30px;
+}
+.xyz{
+    color:yellow;
+}

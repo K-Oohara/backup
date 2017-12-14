@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>    
+    
+  <form-beans>
+    <form-bean name="MemberEntryForm" type="action.form.MemberEntryForm" />
+
+    <!-- 1)language,country,pageの3つの属性を持ったActionFormの定義 -->
+    <form-bean name="LangBean" type="org.apache.struts.action.DynaActionForm" >
+       <form-property name="language" type="java.lang.String" />
+       <form-property name="country" type="java.lang.String" />
+       <form-property name="page" type="java.lang.String" />
+    </form-bean>
+
+  </form-beans>
+ 
+  <global-exceptions>
+    <exception key="error.already" type="logic.exception.AlreadyEntryException" path="/view/memberEntry.jsp"   />
+  </global-exceptions>
+ 
+  <action-mappings>
+    <action name="MemberEntryForm" type="action.MemberEntryAction" path="/MemberEntry">
+      <forward name="success" path="/view/complete.jsp"/>
+    </action>
+
+    <!-- 2)LocaleActionを利用するための設定 -->
+    <action name="LangBean" path="/changeLocale" type="org.apache.struts.actions.LocaleAction">
+      <forward name="success" path="/view/memberEntry.jsp" />
+    </action>
+  </action-mappings>
+ 
+  <message-resources parameter="ApplicationResource" />
+
+</struts-config>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+        
+    <form-beans>
+        <form-bean name="CatalogForm" type="org.apache.struts.action.DynaActionForm" >
+            <form-property name="offset" type="java.lang.Integer" />
+        </form-bean>
+        <form-bean name="CatalogDetailForm" type="org.apache.struts.action.DynaActionForm" >
+            <form-property name="id" type="java.lang.Integer" />
+        </form-bean>
+        <form-bean name="ChangeCountForm" type="action.form.CartCountForm" />
+        <form-bean name="CommitCartForm" type="org.apache.struts.action.DynaActionForm" >
+            <form-property name="userid" type="java.lang.String" />
+        </form-bean>
+    </form-beans>
+    
+    <action-mappings>
+        <action name="CatalogForm" path="/Catalog" type="action.CatalogShowAction">
+            <forward name="show" path="/view/catalog.jsp" />
+        </action>
+        <action name="CatalogForm" path="/CatalogPage" parameter="action" type="action.CatalogPageAction">
+            <forward name="show" path="/view/catalog.jsp" />
+        </action>
+        <action name="CatalogDetailForm" path="/CatalogDetail" type="action.CatalogDetailShowAction">
+            <forward name="show" path="/view/catalogDetail.jsp" />
+        </action>
+        <action name="CatalogDetailForm" path="/AddCart" type="action.ShoppingCartAction">
+            <forward name="cart" path="/view/cart.jsp" />
+        </action>
+        <action name="ChangeCountForm" path="/ChangeCount" type="action.ChangeCountAction">
+            <forward name="cart" path="/view/cart.jsp" />
+        </action>
+
+        <!-- 不正なリクエストに対するエラー画面の追加 -->
+        <action name="CommitCartForm" path="/CommitCart" type="action.CommitCartAction">
+            <forward name="success" path="/view/commit.jsp" />
+            <forward name="twice" path="/view/twice.jsp" />
+        </action>
+    </action-mappings>
+    
+    <message-resources parameter="ApplicationResources" />
+</struts-config>
+

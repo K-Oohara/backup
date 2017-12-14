@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>    
+    <form-beans>
+        <!-- 1）DynaActionFormクラスの利用 -->
+        <form-bean name="PluralRequestForm" type="org.apache.struts.action.DynaActionForm" >
+          <form-property name="count" type="int" initial="5" />
+        </form-bean>
+        <form-bean name="PluralForm" type="action.form.PluralForm" />
+    </form-beans>
+    <action-mappings>
+        <action name="PluralRequestForm" type="action.PluralRequestAction" path="/PluralRequest" >
+            <forward name="show" path="/view/showPlural.jsp" />
+        </action>
+        <action name="PluralForm" type="action.PluralAction" path="/Plural" >
+            <forward name="result" path="/view/pluralResult.jsp" />
+        </action>
+    </action-mappings>
+    <message-resources parameter="ApplicationResource" />
+</struts-config>

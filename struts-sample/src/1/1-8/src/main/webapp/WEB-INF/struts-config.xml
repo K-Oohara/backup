@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+ <form-beans>
+  <form-bean name="UserEntryForm" type="org.apache.struts.action.DynaActionForm" >
+   <form-property name="userid" type="java.lang.String" />
+   <form-property name="password" type="java.lang.String" />
+   <form-property name="name" type="java.lang.String" />
+   <form-property name="age" type="int" initial="20" />
+  </form-bean>
+ </form-beans>
+  <action-mappings>
+    <!-- 1) 画像ファイルを相対パスで指定しているので/viewからはじめている　-->
+    <action name="UserEntryForm" path="/view/index" type="org.apache.struts.actions.ForwardAction" parameter="index"/>
+    <action name="UserEntryForm" path="/view/Entry" type="org.apache.struts.actions.ForwardAction" parameter="next"/>
+  </action-mappings>
+  <message-resources parameter="ApplicationResources"/>
+
+  <!-- 2) Struts-Tilesを利用するためにStruts-Tilesのプラグインを指定している -->
+  <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+     <!-- 3) ページ定義ファイルのパスを指定している　-->
+    <set-property property="definitions-config" value="/WEB-INF/tiles-definition.xml"/>
+  </plug-in>
+</struts-config>

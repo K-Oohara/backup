@@ -1,0 +1,2 @@
+create table IF NOT EXISTS member (name varchar(16),mail varchar(255) primary key,password varchar(32),address varchar(255),tel char(12),birth date,index(mail)) TYPE=INNODB;
+create table IF NOT EXISTS roles (mail varchar(255),role varchar(32),index(mail),foreign key(mail) references member(mail));

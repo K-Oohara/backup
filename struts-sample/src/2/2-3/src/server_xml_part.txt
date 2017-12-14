@@ -1,0 +1,12 @@
+      <Realm  className="org.apache.catalina.realm.JDBCRealm"
+         driverName="com.mysql.jdbc.Driver"
+         connectionURL="jdbc:mysql://localhost/struts"
+         connectionName="root"
+         connectionPassword="1028"
+         digest="MD5"
+         userTable="member" 
+         userNameCol="mail" 
+         userCredCol="password"
+         userRoleTable="roles" 
+         roleNameCol="role"
+      />
