@@ -4,8 +4,6 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.ecsite.dao.UserCreateConfirmDAO;
-import com.internousdev.ecsite.dto.UserCreateDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -20,18 +18,6 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	private String loginPassword;
 
 	private String userName;
-
-	/**
-	 * ログイン検証情報取得DAO
-	 *
-	 */
-	private UserCreateConfirmDAO userCreateConfirmDAO = new UserCreateConfirmDAO();
-
-	/**
-	 * ログイン検証情報格納DTO
-	 */
-	private UserCreateDTO userCreateDTO = new UserCreateDTO();
-
 
 	public Map<String,Object> session;
 
